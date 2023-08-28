@@ -1,0 +1,43 @@
+Requirements: (Name/Value)
+Language: BDScript 2
+Variable: Cooldown/{}
+
+You can delete the //text.
+
+#1 Setting up the cooldown name
+Trigger: Any
+
+$nomention
+$jsonParse[$getVar[Cooldown;$authorID]]
+$jsonSetString[Fish;0]
+// You can add more here like dig, work, etc.
+// If you add more here, make sure to rerun the command.
+$setVar[Cooldown;$jsonStringify;$authorID]
+Json set!
+
+#2 Putting cooldown to command
+Trigger: Any
+
+$nomention
+$jsonParse[$getVar[Cooldown;$authorID]]
+
+$if[$json[Fish]>$getTimestamp]
+$description[Please wait <t:$sum[$getTimestamp;$json[Fish]]:R> before using this command.]
+$else
+$async[] // Inside the async, this part will reset the timestamps.
+$jsonSetString[Fish;0]
+$setVar[Cooldown;$jsonStringify;$authorID]
+$endasync
+$await[]
+$var[Stamp;$sum[$getTimestamp;70]] // 70 is 1 minute and 10 seconds. Minutes converted to seconds.
+$jsonSetString[Fish;$calculate[$json[Fish]+$var[Stamp]]]
+$setVar[Cooldown;$jsonStringify;$authorID]
+// Put your code here.
+$endif
+
+#3 Cooldowns List
+Trigger: Any
+
+$nomention
+$jsonParse[$getVar[Cooldown;$authorID]]
+$if[$json[Fish]>$getTimestamp]Fish: <t:$sum[$getTimestamp;$json[Fish]]:R>$elseFish: Ready$endif

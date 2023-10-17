@@ -1,0 +1,70 @@
+$nomention
+$if[$and[$checkContains[$customID;ROLEENABLE]==true;$checkContains[$customID;$authorID]==true]]
+     $if[$customID==ROLEENABLE-$authorID]
+$setServerVar[autoRole;Enabled]
+$title[$toTitleCase[$serverName[$guildID] Panel]]
+$description[In this embed, you will see all the working and non-working functions.]
+$addField[Auto Role: ($if[$roleExists[$getServerVar[roleID_Var]]==true]Configured$elseNot Configured$endif);STATUS: $getServerVar[autoRole];yes]
+$addField[Embed Msg:;STATUS: $getServerVar[embeD];yes]
+$editButton[ROLEDISABLE-$authorID;Disable;danger;no;;]
+$editButton[ROLEENABLE-$authorID;Enable;success;yes;;]
+     $endif
+$endif
+
+$if[$and[$checkContains[$customID;ROLEDISABLE]==true;$checkContains[$customID;$authorID]==true]]
+     $if[$customID==ROLEDISABLE-$authorID]
+$setServerVar[autoRole;Disabled]
+$title[$toTitleCase[$serverName[$guildID] Panel]]
+$description[In this embed, you will see all the working and non-working functions.]
+$addField[Auto Role: ($if[$roleExists[$getServerVar[roleID_Var]]==true]Configured$elseNot Configured$endif);STATUS: $getServerVar[autoRole];yes]
+$addField[Embed Msg:;STATUS: $getServerVar[embeD];yes]
+$editButton[ROLEDISABLE-$authorID;Disable;danger;yes;;]
+$editButton[ROLEENABLE-$authorID;Enable;success;no;;]
+     $endif
+$endif
+
+$if[$and[$checkContains[$customID;EMBEDENABLE]==true;$checkContains[$customID;$authorID]==true]]
+     $if[$customID==EMBEDENABLE-$authorID]
+$setServerVar[embeD;Enabled]
+$title[$toTitleCase[$serverName[$guildID] Panel]]
+$description[In this embed, you will see all the working and non-working functions.]
+$addField[Auto Role: ($if[$roleExists[$getServerVar[roleID_Var]]==true]Configured$elseNot Configured$endif);STATUS: $getServerVar[autoRole];yes]
+$addField[Embed Msg:;STATUS: $getServerVar[embeD];yes]
+$editButton[EMBEDDISABLE-$authorID;Disable;danger;no;;]
+$editButton[EMBEDENABLE-$authorID;Enable;success;yes;;]
+     $endif
+$endif
+
+$if[$and[$checkContains[$customID;EMBEDDISABLE]==true;$checkContains[$customID;$authorID]==true]]
+     $if[$customID==EMBEDDISABLE-$authorID]
+$setServerVar[embeD;Disabled]
+$title[$toTitleCase[$serverName[$guildID] Panel]]
+$description[In this embed, you will see all the working and non-working functions.]
+$addField[Auto Role: ($if[$roleExists[$getServerVar[roleID_Var]]==true]Configured$elseNot Configured$endif);STATUS: $getServerVar[autoRole];yes]
+$addField[Embed Msg:;STATUS: $getServerVar[embeD];yes]
+$editButton[EMBEDDISABLE-$authorID;Disable;danger;yes;;]
+$editButton[EMBEDENABLE-$authorID;Enable;success;no;;]
+     $endif
+$endif
+
+$if[$and[$checkContains[$customID;SETTINGS]==true;$checkContains[$customID;$authorID]==true]]
+     $if[$message==SetChannelID-$authorID]
+     $newModal[channelIDSetUP-$authorID;ChannelID]
+     $addTextInput[SetChan;short;CHANNELID;;;yes;;Channel ID where you want to send the embed.]
+     $elseif[$message==SetRoleID-$authorID]
+     $newModal[roleIDSetUP-$authorID;RoleID]
+     $addTextInput[SetRole;short;ROLEID;;;yes;;The role you want to give to those who joined.]
+     $endif
+$endif
+
+$if[$and[$checkContains[$customID;channelIDSetUP]==true;$checkContains[$customID;$authorID]==true]]
+$setServerVar[channelIDVar;$input[SetChan]]
+$ephemeral
+$description[Success]
+$endif
+
+$if[$and[$checkContains[$customID;roleIDSetUP]==true;$checkContains[$customID;$authorID]==true]]
+$setServerVar[roleID_Var;$input[SetRole]]
+$ephemeral
+$description[Success]
+$endif

@@ -1,0 +1,29 @@
+$nomention
+     $if[$checkUserPerms[$authorID;manageserver]==false]
+$ephemeral
+$description[You need to have the 'manageserver' permission to run this command.]
+     $else
+$title[$toTitleCase[$serverName[$guildID] Panel]]
+$description[In this embed, you will see all the working and non-working functions.]
+$addField[Auto Role: ($if[$roleExists[$getServerVar[roleID_Var]]==true]Configured$elseNot Configured$endif);STATUS: $getServerVar[autoRole];yes]
+$addField[Embed Msg:;STATUS: $getServerVar[embeD];yes]
+$newSelectMenu[SETTINGS-$authorID;1;1;SETTINGS]
+$addSelectMenuOption[SETTINGS-$authorID;SET CHANNEL ID;SetChannelID-$authorID;Setup the channel ID;;;]
+$addSelectMenuOption[SETTINGS-$authorID;SET ROLE ID;SetRoleID-$authorID;Setup the role ID;;;]
+$addButton[no;0;Auto Role:;secondary;yes;;]
+$if[$getServerVar[autoRole]==Disabled]
+$addButton[no;ROLEENABLE-$authorID;Enable;success;no;;]
+$addButton[no;ROLEDISABLE-$authorID;Disable;danger;yes;;]
+$else
+$addButton[no;ROLEENABLE-$authorID;Enable;success;yes;;]
+$addButton[no;ROLEDISABLE-$authorID;Disable;danger;no;;]
+$endif
+$addButton[yes;1;‎ ‎ ‎ Embed:‎ ‎  ‎ ;secondary;yes;;]
+$if[$getServerVar[embeD]==Disabled]
+$addButton[no;EMBEDENABLE-$authorID;Enable;success;no;;]
+$addButton[no;EMBEDDISABLE-$authorID;Disable;danger;yes;;]
+$else
+$addButton[no;EMBEDENABLE-$authorID;Enable;success;yes;;]
+$addButton[no;EMBEDDISABLE-$authorID;Disable;danger;no;;]
+$endif
+     $endif

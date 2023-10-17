@@ -17,6 +17,6 @@ You must enable intents to [Discord Developer](https://discord.com/developers/ap
 ### Trigger and Codes ###
 | Command Trigger | Code |
 | :-:| :-: |
-| $onInteraction | [Code](https://youtube.com) |
-| /settings | [/settings](https://youtube.com) |
-| $onJoined[$getServerVar[channelIDVar]] | [Code](https://youtube.com) |
+| $onInteraction | [Code](https://raw.githubusercontent.com/paratmr/BDFD-Wikis/main/Welcomer%20CODE/%24onInteraction) |
+| /settings | [Code](https://raw.githubusercontent.com/paratmr/BDFD-Wikis/main/Welcomer%20CODE/%5Csettings) |
+| $onJoined[$getServerVar[channelIDVar]] | [Code](https://raw.githubusercontent.com/paratmr/BDFD-Wikis/main/Welcomer%20CODE/%24onJoined%5B%24getServerVar%5BchannelIDVar%5D%5D) |

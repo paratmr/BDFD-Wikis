@@ -1,0 +1,15 @@
+$if[$isBot[$authorID]==false]
+
+     $if[$getServerVar[embeD]==Enabled]
+$title[welcome lol]
+$description[welcome lol]
+$footer[welcome lol]
+     $endif
+
+     $if[$getServerVar[autoRole]==Enabled]
+$if[$roleExists[$getServerVar[roleID_Var]]==true]
+$roleGrant[$authorID;+$getServerVar[roleID_Var]]
+$endif
+     $endif
+
+$endif

@@ -8,14 +8,15 @@ You can delete the //text.
 Trigger: Any
 
 $nomention
-$jsonParse[$getVar[Cooldown]]
+$jsonParse[$getVar[Cooldown;$authorID]]
 $jsonSetString[Fish;0]
 // You can add more here like dig, work, etc.
+//Example $jsonSetString[Rob;0]
 // If you add more here, make sure to rerun the command.
 $setVar[Cooldown;$jsonStringify;$authorID]
 Json set!
 
-#2 Putting cooldown to command
+#2 Putting cooldown to command (Example: Fish or Rob Command)
 Trigger: Any
 
 $nomention

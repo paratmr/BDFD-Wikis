@@ -4,7 +4,7 @@ Variable: Cooldown/{}
 
 You can delete the //text.
 
-#1 Setting up the cooldown name
+#1 Setting up the cooldown name [Warning: Trigger this code if you add more commands. If triggered, the cooldown for all commands will be reset to 0.]
 Trigger: Any
 
 $nomention
@@ -42,3 +42,6 @@ Trigger: Any
 $nomention
 $jsonParse[$getVar[Cooldown;$authorID]]
 $if[$json[Fish]>$getTimestamp]Fish: <t:$sum[$getTimestamp;$json[Fish]]:R>$elseFish: Ready$endif
+
+//Let's say you add more commands like Rob
+//$if[$json[Rob]>$getTimestamp]Rob: <t:$sum[$getTimestamp;$json[Rob]]:R>$elseFish: Ready$endif

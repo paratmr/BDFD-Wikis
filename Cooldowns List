@@ -45,3 +45,6 @@ $if[$json[Fish]>$getTimestamp]Fish: <t:$sum[$getTimestamp;$json[Fish]]:R>$elseFi
 
 //Let's say you add more commands like Rob
 //$if[$json[Rob]>$getTimestamp]Rob: <t:$sum[$getTimestamp;$json[Rob]]:R>$elseFish: Ready$endif
+
+
+Image preview: https://cdn.discordapp.com/attachments/1071014894675177482/1198136892370202654/Screenshot_2023-08-28-18-55-36-23_572064f74bd5f9fa804b05334aa4f912.jpg?

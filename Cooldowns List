@@ -16,7 +16,7 @@ $jsonSetString[Fish;0]
 $setVar[Cooldown;$jsonStringify;$authorID]
 Json set!
 
-#2 Putting cooldown to command (Example: Fish or Rob Command)
+#2 Putting cooldown to command [This is fish command] (Example: Fish or Rob Command)
 Trigger: Any
 
 $nomention
